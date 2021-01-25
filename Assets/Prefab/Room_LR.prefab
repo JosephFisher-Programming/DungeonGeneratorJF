@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2704726917268156092}
   - component: {fileID: 2704726917268156093}
   - component: {fileID: 2704726917268156094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2704726917325983815}
   - component: {fileID: 2704726917325983808}
   - component: {fileID: 2704726917325983809}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 2704726917949602420}
   - component: {fileID: 2704726917949602421}
   - component: {fileID: 2704726917949602422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2704726918446354448}
-  m_Layer: 0
+  - component: {fileID: -484182679209935146}
+  m_Layer: 8
   m_Name: Room_LR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,6 +318,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-484182679209935146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704726918446354449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7122b08be379d804db8c64a4645458f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePresets:
+  - {fileID: 8940112649461040545, guid: ebd6cb2d59a31a24db21527ba7cf0094, type: 3}
+  - {fileID: 7302129634970359660, guid: 4a33be81d92649b429a7e4e67402d6dc, type: 3}
+  doorBlockers:
+  - {fileID: 5697296904669982478, guid: b88c3922beb776b4fb856e94dfcd0f84, type: 3}
+  - {fileID: 5697296904669982478, guid: d395c0e663111d64ba4dc7c01ded8008, type: 3}
+  levelGenerator: {fileID: 0}
+  timerStart: 5
+  room:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2704726918890110639
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2704726918890110638}
   - component: {fileID: 2704726918890110637}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +445,7 @@ GameObject:
   - component: {fileID: 2704726918920449432}
   - component: {fileID: 2704726918920449433}
   - component: {fileID: 2704726918920449434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +538,7 @@ GameObject:
   - component: {fileID: 2704726919028607192}
   - component: {fileID: 2704726919028607193}
   - component: {fileID: 2704726919028607194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +631,7 @@ GameObject:
   - component: {fileID: 2704726919087510964}
   - component: {fileID: 2704726919087510965}
   - component: {fileID: 2704726919087510966}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +724,7 @@ GameObject:
   - component: {fileID: 2704726919145477347}
   - component: {fileID: 2704726919145477356}
   - component: {fileID: 2704726919145477357}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

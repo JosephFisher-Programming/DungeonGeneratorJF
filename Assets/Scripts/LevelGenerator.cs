@@ -17,6 +17,7 @@ public class LevelGenerator : MonoBehaviour
     private float timer;
     public float timerReset;
     private bool stopGeneration = false;
+    public int randomRoomCount;
 
 
     //  Values that dictate where it can 

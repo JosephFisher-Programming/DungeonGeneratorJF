@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 1503796656}
   m_Layer: 0
   m_Name: LevelSpawner
-  m_TagString: Untagged
+  m_TagString: LevelGenerator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,12 +270,13 @@ MonoBehaviour:
   - {fileID: 5366612652302147037, guid: 3348b936146506242a67d60f989ea1d6, type: 3}
   - {fileID: 7073925859295662805, guid: 6a981615ec3c26243901ce45a4eaf52e, type: 3}
   moveDistance: 10
-  timerReset: 0.025
-  leftMax: 8
-  rightMax: 8
-  downMax: 50
-  leftChance: 5
-  rightChance: 5
+  timerReset: 0.1
+  randomRoomCount: 25
+  leftMax: 3
+  rightMax: 3
+  downMax: 20
+  leftChance: 2
+  rightChance: 2
   downChance: 1
 --- !u!4 &1503796657
 Transform:
