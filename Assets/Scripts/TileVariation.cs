@@ -10,23 +10,28 @@ public class TileVariation : MonoBehaviour
     public float timerStart;
     public LayerMask room;
     private float timerRemaining;
+    public bool dontWantRandomRooms;
     private bool checkedRoom;
-    //public Collider[] check;
+    public float distance;
 
     private void Start()
     {
         levelGenerator = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<LevelGenerator>();
         timerRemaining = timerStart;
-        checkedRoom = false; 
+        checkedRoom = false;
     }
 
     private void Update()
     {
-        if(timerStart < 0 && !checkedRoom)
+        if (timerStart < 0 && !checkedRoom)
         {
             checkedRoom = true;
-            MakeRoom(levelGenerator.moveDistance, false);
-            MakeRoom(-levelGenerator.moveDistance, true);
+            if(!dontWantRandomRooms)
+            {
+                MakeRoom(distance, false);
+                MakeRoom(-distance, true);
+            }
+            blockOpenings();
         }
         else
         {
@@ -34,19 +39,11 @@ public class TileVariation : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(new Vector3(transform.position.x + levelGenerator.moveDistance, transform.position.y, transform.position.z), 3);
-        Gizmos.DrawSphere(new Vector3(transform.position.x - levelGenerator.moveDistance, transform.position.y, transform.position.z), 3);
-    }
-
     private void MakeRoom(float distance, bool isLeft)
     {
         Vector3 newTilePosition = new Vector3(transform.position.x + distance, transform.position.y, transform.position.z);
         Collider[] check = Physics.OverlapSphere(newTilePosition, 3, room);
-        //Debug.DrawLine(transform.position, new Vector3(transform.position.x + distance, transform.position.y, transform.position.z), Color.red, 5, false);
-        
+
         if (check.Length == 0 && levelGenerator.randomRoomCount > 0)
         {
             int randomNum = Random.Range(0, 2);
@@ -66,21 +63,47 @@ public class TileVariation : MonoBehaviour
                 }
                 levelGenerator.randomRoomCount--;
             }
-            else
-            {
-                if (isLeft)
-                {
-                    Debug.Log("Boink");
-                    Instantiate(doorBlockers[0], new Vector3(transform.position.x + distance / 2, transform.position.y, transform.position.z), Quaternion.identity);
-                }
-                else
-                {
-                    Debug.Log("Bonk");
-                    Instantiate(doorBlockers[1], new Vector3(transform.position.x + distance / 2, transform.position.y, transform.position.z), Quaternion.identity);
-                }
-            }
         }
     }
 
-    
+    private void blockOpenings()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    Collider[] check = Physics.OverlapSphere(new Vector3(transform.position.x - distance, transform.position.y, transform.position.z), 3, room);
+                    if(check.Length == 0)
+                    {
+                        Instantiate(doorBlockers[i], new Vector3(transform.position.x - distance / 2, transform.position.y, transform.position.z), Quaternion.identity);
+                    }
+                    break;
+
+                case 1:
+                    check = Physics.OverlapSphere(new Vector3(transform.position.x + distance, transform.position.y, transform.position.z), 3, room);
+                    if (check.Length == 0)
+                    {
+                        Instantiate(doorBlockers[i], new Vector3(transform.position.x + distance / 2, transform.position.y, transform.position.z), Quaternion.identity);
+                    }
+                    break;
+
+                case 2:
+                    check = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z + distance), 3, room);
+                    if (check.Length == 0)
+                    {
+                        Instantiate(doorBlockers[i], new Vector3(transform.position.x, transform.position.y, transform.position.z + distance / 2), Quaternion.identity);
+                    }
+                    break;
+
+                case 3:
+                    check = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z - distance), 3, room);
+                    if (check.Length == 0)
+                    {
+                        Instantiate(doorBlockers[i], new Vector3(transform.position.x, transform.position.y, transform.position.z - distance / 2), Quaternion.identity);
+                    }
+                    break;
+            }
+        }
+    }
 }

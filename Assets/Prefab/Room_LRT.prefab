@@ -57,12 +57,16 @@ MonoBehaviour:
   - {fileID: 7302129634970359660, guid: 4a33be81d92649b429a7e4e67402d6dc, type: 3}
   doorBlockers:
   - {fileID: 5697296904669982478, guid: b88c3922beb776b4fb856e94dfcd0f84, type: 3}
+  - {fileID: 5697296904669982478, guid: 3ed020fa0eea54c44b16ad62f76b1d26, type: 3}
+  - {fileID: 5697296904669982478, guid: 4bf75615418a48345abdfcde2ac3565d, type: 3}
   - {fileID: 5697296904669982478, guid: d395c0e663111d64ba4dc7c01ded8008, type: 3}
   levelGenerator: {fileID: 0}
   timerStart: 5
   room:
     serializedVersion: 2
     m_Bits: 256
+  dontWantRandomRooms: 0
+  distance: 10
 --- !u!1 &5366612652344385663
 GameObject:
   m_ObjectHideFlags: 0

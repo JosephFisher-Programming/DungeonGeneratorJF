@@ -62,7 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BonusRoomGenerator.cs" />
+    <Compile Include="Assets\Scripts\CameraTracking.cs" />
     <Compile Include="Assets\Scripts\LevelGenerator.cs" />
+    <Compile Include="Assets\Scripts\SphereControl.cs" />
     <Compile Include="Assets\Scripts\TileVariation.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/UnityProjects/DungeonTileGenerator/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
